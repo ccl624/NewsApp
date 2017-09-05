@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router'
-import {Row, Col, Carousel, Card, Tabs} from 'antd'
+import {Row, Col, Carousel, Tabs} from 'antd'
 
 import Carousel_1 from '../images/carousel_1.jpg'
 import Carousel_2 from '../images/carousel_2.jpg'

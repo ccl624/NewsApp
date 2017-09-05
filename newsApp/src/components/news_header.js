@@ -20,9 +20,6 @@ const FormItem = Form.Item
 
 
 class NewsHeader extends Component{
-  constructor(props){
-    super(props)
-  }
 
   state = {
     visible: false,
@@ -37,7 +34,7 @@ class NewsHeader extends Component{
   }
 
   showModal = ({key}) => {
-    if(key == "loginOrout"){
+    if(key === "loginOrout"){
       let {visible} = this.state
       visible = true
       this.setState({

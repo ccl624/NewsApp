@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Tabs,Row,Col,Card,Upload, Icon, Modal} from 'antd'
+import {Tabs,Card,Upload, Icon, Modal} from 'antd'
 import axios from 'axios'
 import {Link} from 'react-router'
 

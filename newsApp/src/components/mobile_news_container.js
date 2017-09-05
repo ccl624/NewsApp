@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router'
-import {Row, Col, Carousel, Card, Tabs} from 'antd'
+import {Carousel,Tabs} from 'antd'
 
 import Carousel_1 from '../images/carousel_1.jpg'
 import Carousel_2 from '../images/carousel_2.jpg'
@@ -20,7 +19,6 @@ export default class MobileNewsContainer extends Component{
 
   render() {
     document.title = "首页"
-    const { mode } = this.state;
     return (
       <Tabs defaultActiveKey="1">
         <TabPane tab="头条" key="1">

@@ -54,7 +54,7 @@ class NewsDetail extends Component{
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        if(!values.comment || values.comment.trim()==''){
+        if(!values.comment || values.comment.trim()===''){
           message.info('评论不能为空~~~')
         }else{
           axios.get(`http://newsapi.gugujiankong.com/Handler.ashx?action=comment&userid=${userId}&uniquekey=${uniquekey}&commnet=${values.comment}`)

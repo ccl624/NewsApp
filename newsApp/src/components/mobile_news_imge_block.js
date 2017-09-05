@@ -17,7 +17,6 @@ export default class MobileNewsImageBlock extends Component{
       `http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=${type}&count=${count}`
     ).then((res) => {
       const newsArr = res.data
-      this.state.newsArr = newsArr
       this.setState({
         newsArr
       })
