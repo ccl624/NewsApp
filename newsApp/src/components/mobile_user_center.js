@@ -46,6 +46,7 @@ export default class MobileUserCenter extends Component{
         const comments = res.data
         this.setState({comments})
       })
+    document.title = "用户中心"
   }
 
   render() {

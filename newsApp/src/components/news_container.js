@@ -15,6 +15,7 @@ const TabPane = Tabs.TabPane
 export default class NewsContainer extends Component{
 
   render() {
+    document.title = "首页"
     return (
       <Row className="container">
         <Col span={1}></Col>
