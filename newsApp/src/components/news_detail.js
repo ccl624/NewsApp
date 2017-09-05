@@ -46,6 +46,11 @@ class NewsDetail extends Component{
   handleSubmit = (e) => {
     const {uniquekey} =this.props.params
     const userId = localStorage.getItem('userId')
+    console.log(userId);
+    if(!userId){
+      message.info("请先登录")
+      return
+    }
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
@@ -67,6 +72,10 @@ class NewsDetail extends Component{
   collectArticle = () => {
     const {uniquekey} =this.props.params
     const userId = localStorage.getItem('userId')
+    if(!userId){
+      message.info("请先登录")
+      return
+    }
     axios.get(`http://newsapi.gugujiankong.com/Handler.ashx?action=uc&userid=${userId}&uniquekey=${uniquekey}`)
       .then(res => {
         message.info('收藏文章成功~~~')

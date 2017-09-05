@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
-import {Row,Col,Card,Tabs,Form,Input,Button,message} from 'antd'
+import {Col,Card,Tabs,Form,Input,Button,message} from 'antd'
 import axios from 'axios'
-import NewsImageBlock from './news_image_block'
 
 const TabPane = Tabs.TabPane
 const FormItem = Form.Item
@@ -44,10 +43,14 @@ class MobileNewsDetail extends Component{
   handleSubmit = (e) => {
     const {uniquekey} =this.props.params
     const userId = localStorage.getItem('userId')
+    if(!userId){
+      message.info("请先登录")
+      return
+    }
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        if(!values.comment || values.comment.trim()==''){
+        if(!values.comment || values.comment.trim()===''){
           message.info('评论不能为空~~~')
         }else{
           axios.get(`http://newsapi.gugujiankong.com/Handler.ashx?action=comment&userid=${userId}&uniquekey=${uniquekey}&commnet=${values.comment}`)
@@ -55,6 +58,7 @@ class MobileNewsDetail extends Component{
               //const comments = this.state.comments.push()
               message.info('提交评论成功~~~')
               this.updateComment(uniquekey)
+              this.props.form.resetFields()
             })
         }
       }
@@ -65,6 +69,10 @@ class MobileNewsDetail extends Component{
   collectArticle = () => {
     const {uniquekey} =this.props.params
     const userId = localStorage.getItem('userId')
+    if(!userId){
+      message.info("请先登录")
+      return
+    }
     axios.get(`http://newsapi.gugujiankong.com/Handler.ashx?action=uc&userid=${userId}&uniquekey=${uniquekey}`)
       .then(res => {
         message.info('收藏文章成功~~~')
@@ -74,9 +82,9 @@ class MobileNewsDetail extends Component{
 
 
   render(){
+
     const {getFieldDecorator} = this.props.form
     const {pagecontent, comments} = this.state
-    console.log(111,comments);
     const commentList = !comments.length ? (
       <h3>还没有任何评论~~</h3>
     ):(comments.map((item, index)=>(
