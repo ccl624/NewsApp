@@ -8,5 +8,6 @@
 ### 2. 启动项目
 - 首先系统必须先安装node.js,并将npm添加到环境变量中
 - 此项目是使用react-create-app(脚手架)搭建项目
+	- 下载所有依赖：npm install
 	- 启动项目：npm start
 
