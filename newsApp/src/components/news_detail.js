@@ -62,6 +62,7 @@ class NewsDetail extends Component{
               //const comments = this.state.comments.push()
               message.info('提交评论成功~~~')
               this.updateComment(uniquekey)
+              this.props.form.resetFields()
             })
         }
       }
